@@ -22,7 +22,7 @@ const IntroContents = () => {
       setInputValue(inputValue + "*");
     } else {
       setShowPlaceHolder(true);
-      navigate("/123");
+      navigate("/portfolio");
     }
   };
   setTimeout(showInputHandler, 1500);
