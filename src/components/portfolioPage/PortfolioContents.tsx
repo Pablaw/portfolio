@@ -2,6 +2,13 @@ import React from "react";
 import styled from "@emotion/styled";
 
 import { RiAppleFill } from "react-icons/ri";
+import { MdWifi } from "react-icons/md";
+import { FiBluetooth } from "react-icons/fi";
+import { HiSpeakerWave } from "react-icons/hi2";
+import { IoBatteryCharging } from "react-icons/io5";
+import { TbMessageCircle2Filled } from "react-icons/tb";
+import { BsToggles } from "react-icons/bs";
+import { HiOutlineSearch } from "react-icons/hi";
 
 const PortfolioContents = () => {
   const menuArray: string[] = [
@@ -12,7 +19,8 @@ const PortfolioContents = () => {
     "윈도우",
     "도움말",
   ];
-
+  const todayMonth: string = String(new Date().getMonth() + 1);
+  const todayDate: string = String(new Date().getDate());
   return (
     <Container>
       <Header>
@@ -27,6 +35,18 @@ const PortfolioContents = () => {
             })}
           </MenuText>
         </MenuDiv>
+        <FunctionDiv>
+          <TbMessageCircle2Filled />
+          <HiSpeakerWave style={{ fontSize: "17px" }} />
+          <FiBluetooth style={{ fontSize: "15px" }} />
+          <IoBatteryCharging style={{ fontSize: "24px" }} />
+          <MdWifi />
+          <HiOutlineSearch style={{ fontSize: "17px" }} />
+          <BsToggles style={{ fontSize: "16px" }} />
+          <TimeDiv>
+            {todayMonth}, {todayDate}
+          </TimeDiv>
+        </FunctionDiv>
       </Header>
     </Container>
   );
@@ -42,6 +62,8 @@ const Container = styled.div`
   background-repeat: no-repeat;
 `;
 const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
   background-color: rgba(0, 0, 0, 0.2);
 `;
 const MenuDiv = styled.div`
@@ -50,6 +72,7 @@ const MenuDiv = styled.div`
   color: #ffffff;
   padding: 5px 0;
 `;
+/* ===== 메뉴 구성 ===== */
 const AppleImg = styled.div`
   width: 20px;
   height: 20px;
@@ -70,3 +93,17 @@ const EachMenuText = styled.div`
   cursor: default;
   padding: 0 12px;
 `;
+/* ===== 메뉴 구성 ===== */
+/* ===== 기능버튼 구성 ===== */
+const FunctionDiv = styled.div`
+  display: flex;
+  align-items: center;
+  padding-right: 5px;
+  color: #ffffff;
+  font-size: 19px;
+  & > svg {
+    padding: 0 8px;
+  }
+`;
+const TimeDiv = styled.div``;
+/* ===== 기능버튼 구성 ===== */
