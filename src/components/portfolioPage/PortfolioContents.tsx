@@ -11,7 +11,7 @@ import { BsToggles } from "react-icons/bs";
 import { HiOutlineSearch } from "react-icons/hi";
 
 const PortfolioContents = () => {
-  const menuArray: string[] = [
+  const menuTextGroup: string[] = [
     "파일",
     "편집",
     "보기",
@@ -19,8 +19,20 @@ const PortfolioContents = () => {
     "윈도우",
     "도움말",
   ];
+  const dayTextGroup: string[] = [
+    "(일)",
+    "(월)",
+    "(화)",
+    "(수)",
+    "(목)",
+    "(금)",
+    "(토)",
+  ];
   const todayMonth: string = String(new Date().getMonth() + 1);
   const todayDate: string = String(new Date().getDate());
+  const todayDay: string = dayTextGroup[new Date().getDay()];
+  const nowTime: string = new Date().toLocaleTimeString().substring(0, 7);
+
   return (
     <Container>
       <Header>
@@ -30,7 +42,7 @@ const PortfolioContents = () => {
           </AppleImg>
           <CurrentApp>Finder</CurrentApp>
           <MenuText>
-            {menuArray.map((menuTitle, idx) => {
+            {menuTextGroup.map((menuTitle, idx) => {
               return <EachMenuText key={idx}>{menuTitle}</EachMenuText>;
             })}
           </MenuText>
@@ -44,7 +56,7 @@ const PortfolioContents = () => {
           <HiOutlineSearch style={{ fontSize: "17px" }} />
           <BsToggles style={{ fontSize: "16px" }} />
           <TimeDiv>
-            {todayMonth}, {todayDate}
+            {todayMonth}월 {todayDate}일 {todayDay} {nowTime}
           </TimeDiv>
         </FunctionDiv>
       </Header>
@@ -105,5 +117,8 @@ const FunctionDiv = styled.div`
     padding: 0 8px;
   }
 `;
-const TimeDiv = styled.div``;
+const TimeDiv = styled.div`
+  font-size: 14.2px;
+  margin-left: 7px;
+`;
 /* ===== 기능버튼 구성 ===== */
